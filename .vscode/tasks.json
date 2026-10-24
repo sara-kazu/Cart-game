@@ -1,0 +1,68 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Godot: ゲームを実行",
+      "type": "process",
+      "command": "${input:godotExecutable}",
+      "args": [
+        "--path",
+        "${workspaceFolder}"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "Godot: エディターを開く",
+      "type": "process",
+      "command": "${input:godotExecutable}",
+      "args": [
+        "--editor",
+        "--path",
+        "${workspaceFolder}"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "Godot: 自動テスト",
+      "type": "process",
+      "command": "${input:godotExecutable}",
+      "args": [
+        "--headless",
+        "--path",
+        "${workspaceFolder}",
+        "--script",
+        "res://tests/smoke.gd"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "id": "godotExecutable",
+      "type": "promptString",
+      "description": "Godot 4の実行ファイルのフルパスを入力（引用符は不要）。PATH登録済みなら godot",
+      "default": "godot"
+    }
+  ]
+}
